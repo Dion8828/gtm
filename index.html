@@ -136,6 +136,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 // Menggabungkan pesan teks dan kode status ke dalam satu string argumen yang benar
                 updateUI(`✅ Pendaftaran Sukses! User ID baru: ${hasilRespons.id} (Status Network: ${response.status})`, "success");
                 console.log("Status Network:", response.status);
+                window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+        'event': 'pendaftaran_berhasil',
+        'nama_kursus': 'Form Network Class',
+        'level_kursus': dataObjek.kota // Mengambil kota pilihan user (semarang/jakarta)
+    });
                 // formRegister.reset(); // Mengosongkan form otomatis setelah berhasil pendaftaran
             } else {
                 // 3. KONDISI: PENDAFTARAN GAGAL (Server merespons tetapi ada error seperti 404)         
